@@ -4,11 +4,11 @@ import React from "react";
 import getCurrentUser from "../actions/getCurrentUser";
 import ClientOnly from "../components/ClientOnly";
 import EmptyState from "../components/EmptyState";
-import getReservations from "../actions/getReservations";
-import TripsClient from "./TripsClient";
+import PropertiesClient from "./PropertiesClient";
 import {TSafeUser} from "../types";
+import getListings from "../actions/getListings";
 
-const TripsPage = async () => {
+const PropertiesPage = async () => {
 	const currentUser = await getCurrentUser();
 
 	if (!currentUser) {
@@ -23,27 +23,27 @@ const TripsPage = async () => {
 		);
 	}
 
-	const reservations = await getReservations({userId: currentUser.id});
+	const listings = await getListings({userId: currentUser.id});
 
-	if (reservations.length === 0) {
+	if (listings.length === 0) {
 		return (
 			<ClientOnly>
 				<EmptyState
 					center
-					title='No trips found'
-					subtitle='Looks like you have not reserved any trips yet'
+					title='No properties found'
+					subtitle='Looks like you have no properties.'
 				/>
 			</ClientOnly>
 		);
 	}
 	return (
 		<ClientOnly>
-			<TripsClient
-				reservations={reservations}
+			<PropertiesClient
+				listings={listings}
 				currentUser={currentUser as TSafeUser}
 			/>
 		</ClientOnly>
 	);
 };
 
-export default TripsPage;
+export default PropertiesPage;

@@ -9,7 +9,7 @@ import "react-date-range/dist/theme/default.css";
 
 interface IProps {
 	value: Range;
-	disabledDates: Date[];
+	disabledDates?: Date[];
 	onChange: (value: RangeKeyDict) => void;
 }
 

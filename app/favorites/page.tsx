@@ -15,6 +15,7 @@ const FavoritesPage = async () => {
 		return (
 			<ClientOnly>
 				<EmptyState
+					center
 					title='Unauthorized'
 					subtitle='Please login'
 				/>

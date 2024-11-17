@@ -12,6 +12,7 @@ import LoginModal from "./components/modals/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
 import {TSafeUser} from "./types";
 import RentModal from "./components/modals/RentModal";
+import SearchModal from "./components/modals/SearchModal";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -44,12 +45,15 @@ export default async function RootLayout({
 			<body className={font.className}>
 				<ClientOnly>
 					<ToasterProvider />
+					<SearchModal />
 					<RentModal />
 					<RegisterModal />
 					<LoginModal />
 					<Navbar currentUser={currentUser as TSafeUser} />
 				</ClientOnly>
-				<div className='pb-10 pt-20 h-full overflow-auto'>{children}</div>
+				<div className='pb-10 pt-28 sm:pt-28 md:pt-24 lg:pt-20 h-full overflow-auto'>
+					{children}
+				</div>
 			</body>
 		</html>
 	);

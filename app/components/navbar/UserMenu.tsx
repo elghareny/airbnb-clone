@@ -81,7 +81,10 @@ const UserMenu: React.FC<IProps> = ({currentUser}) => {
 								/>
 								<MenuItem
 									label='My properties'
-									onClick={() => {}}
+									onClick={() => {
+										router.push("/properties");
+										setIsOpen(false);
+									}}
 								/>
 								<MenuItem
 									label='Airbnb my home'

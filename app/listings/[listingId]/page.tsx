@@ -20,7 +20,7 @@ const ListingPage = async ({params}: {params: IParams}) => {
 	if (!listing) {
 		return (
 			<ClientOnly>
-				<EmptyState />
+				<EmptyState center />
 			</ClientOnly>
 		);
 	}
