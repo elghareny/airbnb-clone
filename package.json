@@ -22,6 +22,7 @@
         "next-cloudinary": "^6.16.0",
         "npm": "^10.9.0",
         "query-string": "^9.1.1",
+        "radium": "^0.26.2",
         "react": "^19.0.0-rc-02c0e824-20241028",
         "react-date-range": "^2.0.1",
         "react-dom": "^19.0.0-rc-02c0e824-20241028",
