@@ -103,7 +103,7 @@ const Map: React.FC<IProps> = ({center, locationRegion, locationLabel}) => {
 				.bindPopup(`<b>${locationLabel}</b><br><b>${locationRegion}</b>`)
 				.openPopup();
 		}
-	}, [center]);
+	}, [center, locationRegion, locationLabel]);
 	return (
 		<div
 			id='map'

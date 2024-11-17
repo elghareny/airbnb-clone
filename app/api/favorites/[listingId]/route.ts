@@ -26,14 +26,23 @@ export async function POST(request: Request, {params}: {params: IParams}) {
 
 	favoriteIds.push(listingId);
 
-	const user = await prisma.user.update({
-		where: {id: currentUser.id},
-		data: {
-			favoriteIds,
-		},
-	});
+	let response;
 
-	return NextResponse.json(user);
+	const user = await prisma.user
+		.update({
+			where: {id: currentUser.id},
+			data: {
+				favoriteIds,
+			},
+		})
+		.then(() => {
+			response = NextResponse.json(user);
+		})
+		.catch(() => {
+			response = NextResponse.error();
+		});
+
+	return response;
 }
 
 export async function DELETE(request: Request, {params}: {params: IParams}) {
